@@ -1,0 +1,24 @@
+{
+  "name": "lab4_jyalexander",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.js"
+  },
+  "author": "Jy Alexander",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "faker": "^5.5.3",
+    "mongoose": "^8.3.2",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  }
+}

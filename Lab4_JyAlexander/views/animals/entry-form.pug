@@ -1,0 +1,39 @@
+include ../layouts/main.pug
+
+block content
+    .container.mt-4
+    .row.justify-content-center
+      .col-md-6
+        h1.mb-3 Add an Animal to the Database
+        form(action="/add-animal" method="post")
+          .mb-3
+            label(for='zoo' class='form-label') Home Zoo
+            input#zoo.form-control(type='text' name='zoo' required='required')
+          .mb-3
+            label(for='scientificName' class='form-label') Scientific Name
+            input#scientificName.form-control(type='text' name='scientificName' required='required')
+          .mb-3
+            label(for='commonName' class='form-label') Common Name
+            input#commonName.form-control(type='text' name='commonName' required='required')
+          .mb-3
+            label(for='givenName' class='form-label') Given Name
+            input#givenName.form-control(type='text' name='givenName' required='required')
+          .mb-3
+            label(for='gender' class='form-label') Gender
+            select#gender.form-select(name='gender' required='required')
+              option(value='Male') Male
+              option(value='Female') Female
+          .mb-3
+            label(for='dob' class='form-label') Date of Birth
+            input#dob.form-control(type='date' name='dob' required='required')
+          .mb-3
+            label(for='age' class='form-label') Age
+            input#age.form-control(type='number' name='age' required='required')
+          .mb-3
+            label(for='isTransportable' class='form-label') Is Transportable
+            select#isTransportable.form-select(name='isTransportable' required='required')
+              option(value='true') Available
+              option(value='false') Unavailable
+          .d-flex.justify-content-between
+            button.btn.btn-primary(type='submit') Add Animal to Database
+            button.btn.btn-secondary(type='reset') Reset Form

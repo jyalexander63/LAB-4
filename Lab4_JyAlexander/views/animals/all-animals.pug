@@ -1,0 +1,30 @@
+include ../layouts/main.pug
+
+block content
+  .container.mt-4
+    h1 All Animals
+    table.table
+      thead
+        tr
+          th Zoo
+          th Scientific Name
+          th Common Name
+          th Given Name
+          th Gender
+          th Date of Birth
+          th Age
+          th Transportability
+          th Actions
+      tbody
+        each animal in animals
+          tr
+            td= animal.Zoo
+            td= animal.ScientificName
+            td= animal.CommonName
+            td= animal.GivenName
+            td= animal.Gender
+            td= animal.DateOfBirth.toDateString()
+            td= animal.Age
+            td= animal.IsTransportable ? 'Available' : 'Unavailable'
+            td
+              a.btn.btn-primary(href=`/edit-animal/${animal._id}`) Edit

@@ -1,0 +1,38 @@
+include ../layouts/main.pug
+
+block content
+  .container.mt-4
+    h1 Edit Animal Entry
+    form(method='POST', action='/animals/update-animal/' + animal._id)
+      .mb-3
+        label(for='zoo' class='form-label') Zoo
+        input#zoo.form-control(type='text' name='zoo' value=animal.Zoo required)
+      .mb-3
+        label(for='scientificName' class='form-label') Scientific Name
+        input#scientificName.form-control(type='text' name='scientificName' value=animal.ScientificName required)
+      .mb-3
+        label(for='commonName' class='form-label') Common Name
+        input#commonName.form-control(type='text' name='commonName' value=animal.CommonName required)
+      .mb-3
+        label(for='givenName' class='form-label') Given Name
+        input#givenName.form-control(type='text' name='givenName' value=animal.GivenName required)
+      .mb-3
+        label(for='gender' class='form-label') Gender
+        select#gender.form-select(name='gender')
+          option(value='Male' selected=(animal.Gender === 'Male')) Male
+          option(value='Female' selected=(animal.Gender === 'Female')) Female
+      .mb-3
+        label(for='dob' class='form-label') Date of Birth
+        input#dob.form-control(type='date' name='dob' value=animal.DateOfBirth.toISOString().split('T')[0] required)
+      .mb-3
+        label(for='age' class='form-label') Age
+        input#age.form-control(type='number' name='age' value=animal.Age required)
+      .mb-3
+        label(for='isTransportable' class='form-label') Is Transportable
+        select#isTransportable.form-select(name='isTransportable')
+          option(value='true' selected=animal.IsTransportable) Available
+          option(value='false' selected=!animal.IsTransportable) Unavailable
+      button.btn.btn-primary(type='submit') Update Animal Record
+    form(method='POST', action='/animals/delete-animal/' + animal._id style='margin-top:20px;')
+      input(type='hidden' name='_method' value='DELETE') // If you're using method-override middleware
+      button.btn.btn-danger(type='submit') Delete Record
